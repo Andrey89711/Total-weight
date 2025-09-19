@@ -15,8 +15,12 @@ def get_all_files(directory_path):
 
         # Фильтруем только файлы (исключаем директории)
         files = [item for item in all_items if os.path.isfile(os.path.join(directory_path, item))]
+        file = []
 
-        return files
+        for i in files:
+            if '.DS_Store' != i:
+                file.append(i)
+        return file
 
     except Exception as e:
         print(f"Ошибка: {e}")
